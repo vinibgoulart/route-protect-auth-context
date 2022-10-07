@@ -15,8 +15,8 @@ export const AuthProvider = ({ children }: any) => {
 
       if (storageUser && storageToken) {
         setUser(JSON.parse(storageUser));
-        setLoading(false);
       }
+      setLoading(false);
     }
 
     loadStorageData();
