@@ -2,27 +2,28 @@ import { useState } from "react";
 import { useAuth } from "../context/auth";
 
 export const Login = () => {
-  const [email, setEmail] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const { Login } = useAuth();
 
   const handleLogin = (): void => {
-    Login({ email, password });
+    Login({ username, password });
   };
 
   return (
     <div>
       <input
         onChange={(e) => {
-          setEmail(e.target.value);
+          setUsername(e.target.value);
         }}
-        placeholder="Email"
+        placeholder="Username" 
       />
       <input
         onChange={(e) => {
           setPassword(e.target.value);
         }}
         placeholder="Password"
+        
       />
       <button onClick={handleLogin}>Login</button>
     </div>

@@ -1,6 +1,7 @@
 export type LoginType = {
-  email: string;
+  // email: string;
   password: string;
+  username:string;
 };
 
 export interface AuthContextData {

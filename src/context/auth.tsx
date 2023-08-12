@@ -22,17 +22,23 @@ export const AuthProvider = ({ children }: any) => {
     loadStorageData();
   }, []);
 
-  const Login = async ({ email, password }: LoginType) => {
+  const Login = async ({ username, password }: LoginType) => {
     try {
-      const res = await api.post<{ access_token: string }>("/login", {
-        email: email,
+      const res = await api.post<{ token: string }>("/login", {
+        username: username,
         password: password,
       });
+      const token = res.data.token;
+      const userData = await api.get<{}>("/user", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          Accept: "application/json",
+        },
+      });
 
-      const userData = await api.get<{}>("/auth/user");
       setUser(userData.data);
 
-      localStorage.setItem("@Auth:access_token", res.data.access_token);
+      localStorage.setItem("@Auth:access_token", res.data.token);
       localStorage.setItem("@Auth:user", JSON.stringify(userData.data));
     } catch (err) {
       console.error(err);

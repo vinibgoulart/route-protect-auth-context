@@ -1,7 +1,9 @@
 import axios from "axios";
+// import {AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse} from "axios";
+
 
 export const api = axios.create({
-  baseURL: "http://localhost:8000/api",
+  baseURL: "http://sajjad.me/api",
   headers: {
     "Content-Type": "application/json",
   },
@@ -12,7 +14,10 @@ api.interceptors.request.use(
     const token = localStorage.getItem("@Auth:access_token");
     if (token) {
       config.headers = {
-        Authorization: `Bearer ${token}`,
+         Authorization: `Bearer ${token}`,
+        // Authorization:token,
+        Accept: "application/json",
+        // Authorization: `${token}`,
       };
     }
     return config;
