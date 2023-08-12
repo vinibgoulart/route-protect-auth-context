@@ -1,5 +1,5 @@
 {
-  "name": "auth-context-example",
+  "name": "ehsaneng",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -23,7 +23,7 @@
     "vite": "^3.1.0"
   },
   "main": "index.js",
-  "repository": "https://github.com/vinibgoulart/route-protect-auth-context.git",
+  "repository": "https://github.com/sajjadmoosavi/ehsaneng.git",
   "author": "sajjadmoosavi90@gmail.com <sajjadmoosavi90@gmail.com>",
   "license": "mit"
 }
